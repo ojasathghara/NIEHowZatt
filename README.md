@@ -1,1 +1,2 @@
-# ctms
+# CTMS
+## Cricket Tournament Management System
