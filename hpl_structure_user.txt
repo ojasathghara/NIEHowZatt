@@ -1,0 +1,101 @@
+<-----------------------------------HOME PAGE------------------------------------->
+index.html/home.html
+Menu bar:	Home, Schedule, Teams, Points, Rules, About
+
+Options:	Admin LogIn
+
+Data:		OnGoing match details in rectangular box which shows runs, overs, wickets and this over.
+			Upcoming 5 matches(footer to full schedule)
+			Top 5 teams and points(wins, loses, draw)(footer to full points table)
+	
+				!!!!!!!!!!!!!!!!!
+
+<-----------------------------------ON GOING PAGE------------------------------------->
+ongoing.html
+Menu bar:	Home, Schedule, Teams, Points, Rules, About
+
+Options:	Admin LogIn
+
+Data:		On going match details:	Runs/Wickets, overs, This over, batsmen: strike(optional), bowler
+		batsmen total run, bowler total run/wicket.  
+
+<-----------------------------------TEAMS PAGE------------------------------------->
+teams.html
+Menu bar:	Home, Schedule, Teams, Points, Rules, About
+
+Options:	Admin LogIn
+
+Data:		All teams in grid format and details(wins, loses, draw, points) "AllTeams" table
+AllTeams:	TeamId, TeamName, TeamCaptain, RunRate, Wins, Loses, Draw, Points
+
+Click on any team to view individual team page
+				!!!!!!!!!!!!!!!!!
+
+
+
+<-----------------------------------INDIE TEAM PAGE------------------------------------->
+Menu bar:	Home, Schedule, Teams, Points, Rules, About
+
+Options:	Admin LogIn
+
+Data:		Team name(image maybe), Captain name, RunRate, Total points, wins, loses, draw
+		All players and their stats "TeamTable"
+
+TeamTable:	PlayerId, PlayerName, Runs, BallsPlayed, Wickets, BallsThrown, StrikeRate, Points(points formula)
+
+				!!!!!!!!!!!!!!!!!
+
+
+
+<-----------------------------------SCHEDULE PAGE------------------------------------->
+schedule.html
+Menu bar:	Home, Schedule, Teams, Points, Rules, About
+
+Options:	Admin LogIn
+
+Data:		"ScheduleTable"
+
+ScheduleTable:	No., MatchID, Date, Time, V/S
+
+				!!!!!!!!!!!!!!!!!
+
+
+
+<-----------------------------------POINTS PAGE------------------------------------->
+points.html
+Menu bar:	Home, Schedule, Teams, Points, Rules, About
+
+Options:	Admin LogIn
+
+Data:		"AllTeams"
+AllTeams:	TeamId, TeamName, TeamCaptain, RunRate, Wins, Loses, Draw, Points
+
+				!!!!!!!!!!!!!!!!!
+
+
+
+
+<-----------------------------------RULES PAGE------------------------------------->
+rules.html
+Menu bar:	Home, Schedule, Teams, Points, Rules, About
+
+Options:	Admin LogIn
+
+Data:		Rules and regulations lists
+
+				!!!!!!!!!!!!!!!!!
+
+
+
+<-----------------------------------ABOUT PAGE------------------------------------->
+about.html
+Menu bar:	Home, Schedule, Teams, Points, Rules, About
+
+Options:	Admin LogIn
+
+Data:		About HPL 20XX
+
+				!!!!!!!!!!!!!!!!!
+
+Functionality to be added:
+1.	Update "AllTeams" table desc points after each match.
