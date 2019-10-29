@@ -1,3 +1,7 @@
 .bg {
     background-image: url(../static/background.jpg);
 }
+
+.table-header{
+    height: 25px;
+}

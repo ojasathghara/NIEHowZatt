@@ -25,8 +25,8 @@ Menu bar:	Home, Schedule, Teams, Points, Rules, About
 
 Options:	Admin LogIn
 
-Data:		All teams in grid format and details(wins, loses, draw, points) "AllTeams" table
-AllTeams:	TeamId, TeamName, TeamCaptain, RunRate, Wins, Loses, Draw, Points
+Data:		All teams in grid format and details "AllTeams" table
+AllTeams:	Team name, captain, players
 
 Click on any team to view individual team page
 				!!!!!!!!!!!!!!!!!
