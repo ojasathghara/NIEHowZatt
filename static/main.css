@@ -5,3 +5,7 @@
 .table-header{
     height: 25px;
 }
+
+.clear_float {
+    clear: both;
+}

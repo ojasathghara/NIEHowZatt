@@ -37,7 +37,7 @@ def ongoing():
 
 @app.route("/admin")
 def admin():
-    return render_template("admin.html",title="Dash Board")
+    return render_template("dashboard.html",title="Dash Board")
 
 if __name__ == "__main__":
     app.run(debug=True)
