@@ -35,5 +35,9 @@ def login():
 def ongoing():
     return render_template("ongoing.html",title="Current Match")
 
+@app.route("/admin")
+def admin():
+    return render_template("admin.html",title="Dash Board")
+
 if __name__ == "__main__":
     app.run(debug=True)
