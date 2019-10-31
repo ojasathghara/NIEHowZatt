@@ -22,6 +22,6 @@
     clear: both;
 }
 
-#add_team_form {
+#add_team_form, #delete_team_form, #schedule_match_form, #delete_match_form, #add_player_form, #delete_player_form {
     display: none;
 }
