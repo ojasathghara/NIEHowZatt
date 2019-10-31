@@ -13,3 +13,7 @@ function openForm(id) {
 function closeForm(id) {
     document.getElementById(id).style.display = "none";
 }
+
+function clearForm(id) {
+    document.getElementById(id).reset();
+}

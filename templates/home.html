@@ -1,66 +1,66 @@
 {% extends "layout.html" %}
 {% block content %}
 
-    <!--Data-->
-    <div class="rest-body">
-        <div class="row">
-            <div class="col-sm-12 col-md-6 mt-5">
-                    
-                <div class="card rounded-0 paper">
-                    <div class="card-header bg-dark text-white rounded-0">Ongoing<span id="team_vs" class="float-right">IND vs RSA</span></div>
-                    <div class="card-body">
-                        <span id="tName" class="font-weight-bold">IND :</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="tScore">45</span>/<span id="tWickets">2</span>
-                        <span class="font-weight-bold"><div class="float-right">Overs:</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="overs">4.5</span></div>
-                        <br><br>
-                        <p>
-                            <span class="float-left" id="bat1">Ojaswi</span>: <span id="run1">54</span>/<span id="ball1">14</span>
-                            <div class="float-right"><span id="bowler">Nikhil</span> (<span id="p_ball">2.5</span>/<span id="bWicket">2</span>)</div>
-                        </p>
-                        <p><span class="float-left" id="bat2">Vinay</span>: <span id="run2">30</span>/<span id="ball2">10</span></p>
+<!--Data-->
+<div class="rest-body">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 mt-5">
+                
+            <div class="card rounded-0 paper">
+                <div class="card-header bg-dark text-white rounded-0">Ongoing<span id="team_vs" class="float-right">IND vs RSA</span></div>
+                <div class="card-body">
+                    <span id="tName" class="font-weight-bold">IND :</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="tScore">45</span>/<span id="tWickets">2</span>
+                    <span class="font-weight-bold"><div class="float-right">Overs:</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="overs">4.5</span></div>
+                    <br><br>
+                    <p>
+                        <span class="float-left" id="bat1">Ojaswi</span>: <span id="run1">54</span>/<span id="ball1">14</span>
+                        <div class="float-right"><span id="bowler">Nikhil</span> (<span id="p_ball">2.5</span>/<span id="bWicket">2</span>)</div>
+                    </p>
+                    <p><span class="float-left" id="bat2">Vinay</span>: <span id="run2">30</span>/<span id="ball2">10</span></p>
 
-                        <p><span class="font-weight-bold">Strike: </span><span id="bat1">Ojaswi</span></p>
-                        <br>
-                        <div class="font-weight-bold float-left bg-light">CRR: <span id="crr">4.5</span></div>
-                        <div class="font-weight-bold float-right">
-                            This Over: &nbsp;&nbsp;&nbsp;<span id="this_over_str">1 2 0 4 0 0</span>
-                        </div>
+                    <p><span class="font-weight-bold">Strike: </span><span id="bat1">Ojaswi</span></p>
+                    <br>
+                    <div class="font-weight-bold float-left bg-light">CRR: <span id="crr">4.5</span></div>
+                    <div class="font-weight-bold float-right">
+                        This Over: &nbsp;&nbsp;&nbsp;<span id="this_over_str">1 2 0 4 0 0</span>
                     </div>
-
-                    <button onclick="window.location.href = '{{ url_for('ongoing') }}';" class="btn btn-dark border-white border-1 float-right rounded-0">Details >></button>
                 </div>
 
+                <button onclick="window.location.href = '{{ url_for('ongoing') }}';" class="btn btn-dark border-white border-1 float-right rounded-0">Details >></button>
             </div>
-            <!--points-->
-            <div class="col-sm-12 col-md-6 mt-5">
-                <div style="height: 40px;" class="mt-1 mb-2 paper"><h4 class="bg-dark text-white h-100 pl-2">Top Teams</h4></div>
-                <table class="table table-dark text-center rounded-0 paper">
-                    <tr><th>Position</th><th>Team</th><th>Points</th></tr>
-                    <tr><td>1</td><td>IND</td><td>5</td></tr>
-                    <tr><td>1</td><td>IND</td><td>5</td></tr>
-                    <tr><td>1</td><td>IND</td><td>5</td></tr>
-                    <tr><td>1</td><td>IND</td><td>5</td></tr>
-                    <tr><td>1</td><td>IND</td><td>5</td></tr>
-                </table>
-                
-                <button onclick="window.location.href = '{{ url_for('points') }}';" 
-                class="btn btn-dark border-0 float-right rounded-0 paper">
-                    More >>
-                </button>
-            </div>
-            <!--schedule-->
-            <div class="col-sm-12 col-md-12 mt-3">
-                <div style="height: 40px;" class="mt-4 mb-2 paper"><h4 class="bg-dark text-white text-center h-100 pl-2">Schedule</h4></div>
-                <table class="table table-light text-center paper">
-                    <tr><th>Team1</th><th>Team2</th><th>Date</th></tr>
-                    <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
-                    <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
-                    <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
-                    <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
-                    <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
-                </table> 
-                
-            </div>
+
+        </div>
+        <!--points-->
+        <div class="col-sm-12 col-md-6 mt-5">
+            <div style="height: 40px;" class="mt-1 mb-2 paper"><h4 class="bg-dark text-white h-100 pl-2">Top Teams</h4></div>
+            <table class="table table-dark text-center rounded-0 paper">
+                <tr><th>Position</th><th>Team</th><th>Points</th></tr>
+                <tr><td>1</td><td>IND</td><td>5</td></tr>
+                <tr><td>1</td><td>IND</td><td>5</td></tr>
+                <tr><td>1</td><td>IND</td><td>5</td></tr>
+                <tr><td>1</td><td>IND</td><td>5</td></tr>
+                <tr><td>1</td><td>IND</td><td>5</td></tr>
+            </table>
+            
+            <button onclick="window.location.href = '{{ url_for('points') }}';" 
+            class="btn btn-dark border-0 float-right rounded-0 paper">
+                More >>
+            </button>
+        </div>
+        <!--schedule-->
+        <div class="col-sm-12 col-md-12 mt-3">
+            <div style="height: 40px;" class="mt-4 mb-2 paper"><h4 class="bg-dark text-white text-center h-100 pl-2">Schedule</h4></div>
+            <table class="table table-light text-center paper">
+                <tr><th>Team1</th><th>Team2</th><th>Date</th></tr>
+                <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+                <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+                <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+                <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+                <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+            </table> 
+            
         </div>
     </div>
+</div>
 
 {% endblock content%}
