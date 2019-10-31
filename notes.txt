@@ -1,0 +1,1 @@
+! remember to show extended points table on "points.html"

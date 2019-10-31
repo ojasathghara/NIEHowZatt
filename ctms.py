@@ -35,8 +35,8 @@ def login():
 def ongoing():
     return render_template("ongoing.html",title="Current Match")
 
-@app.route("/admin")
-def admin():
+@app.route("/dashboard")
+def dashboard():
     return render_template("dashboard.html",title="Dash Board")
 
 if __name__ == "__main__":

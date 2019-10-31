@@ -1,11 +1,27 @@
-.bg {
-    background-image: url(../static/background.jpg);
+.bg-light {
+    /* background-image: url(../static/background.jpg); */
+    background-color: lightgrey;
 }
 
 .table-header{
     height: 25px;
 }
 
+.paper {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-xl {
+    padding: 12px 12px;
+    font-size: 1rem;
+    border-radius: 0px;
+    width: 100%;    /*Specify your width here */;
+}
+
 .clear_float {
     clear: both;
+}
+
+#add_team_form {
+    display: none;
 }

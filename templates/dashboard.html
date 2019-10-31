@@ -1,0 +1,83 @@
+{% extends "schedule.html" %}
+{% block admin %}
+
+    <div class="row">
+        <div class="col-md-4 col-sm-6 mt-2">
+            <div class="card bg-dark paper rounded-0">
+                <div class="card-body card-dim text-center text-white" id="add_team">
+                    <button type="button" onclick='openForm("add_team_form")' class="btn btn-dark btn-xl">Add Team</button>
+                </div>
+                
+
+                <form class="bg-light paper rounded-0 border-0 p-2" id="add_team_form" method="POST" action="" onsubmit="alert('Team Added')">
+                    <div class="form-group">
+                      <label for="team_add_name">Team Name</label>
+                      <input type="text" class="form-control" id="team_add_name" placeholder="Enter Team Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="team_add_captain">Captain Name</label>
+                      <input type="text" class="form-control" id="team_add_captain" placeholder="Captain Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="team_add_players">Number of Players</label>
+                        <input type="text" class="form-control" id="team_add_players" placeholder="Enter Number" required>
+                    </div>                
+
+                    <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Add</button>
+                    <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("add_team_form")'>Close</button>
+                </form>
+
+
+
+
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mt-2">
+            <div class="card card_hover_dark bg-dark paper rounded-0">
+                <div class="card-body card-dim text-center text-white" id="add_player">
+                    Add Player
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mt-2">
+            <div class="card card_hover_dark bg-dark paper rounded-0">
+                <div class="card-body card-dim text-center text-white" id="schedule_match">
+                    Schedule Match
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mt-2">
+            <div class="card card_hover_dark bg-dark paper rounded-0">
+                <div class="card-body card-dim text-center text-white" id="del_team">
+                    Delete Team
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mt-2">
+            <div class="card card_hover_dark bg-dark paper rounded-0">
+                <div class="card-body card-dim text-center text-white" id="delete_player">
+                    Delete Player
+                </div>
+            </div>
+        </div>        
+        <div class="col-md-4 col-sm-6 mt-2">
+            <div class="card card_hover_dark bg-dark paper rounded-0">
+                <div class="card-body card-dim text-center text-white" id="delete_match">
+                    Delete Match
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 mt-4">
+            <div class="card paper rounded-0">
+                <div class="card-body card-dim text-center" id="start_match">
+                    Start Match
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock admin %}
