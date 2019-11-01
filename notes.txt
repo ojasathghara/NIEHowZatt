@@ -1,1 +1,3 @@
-! remember to show extended points table on "points.html"
+! replace "close" with cancel on dashboard forms
+! add full schedule button in homepage
+! form is only closed when clicking close button and not cleared --fix this

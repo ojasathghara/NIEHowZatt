@@ -11,6 +11,7 @@ function openForm(id) {
 }
   
 function closeForm(id) {
+    document.getElementById(id).reset();
     document.getElementById(id).style.display = "none";
 }
 

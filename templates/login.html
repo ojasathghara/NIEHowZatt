@@ -1,11 +1,22 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1>Login page</h1>
-
-<button onclick="window.location.href = '{{ url_for('dashboard') }}';" 
-    class="btn btn-dark border-white border-0 float-right rounded-0 paper">
-        Log In
-</button>
-
+<div class="row">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <form class="bg-light paper rounded-0 border-0 p-2 mt-5" id="login_form" method="POST" action="">
+            <h2>Please Login as Admin:</h2>
+            <div class="form-group">
+                <label for="login_username">Username</label>
+                <input type="text" class="form-control" id="login_username" placeholder="Enter Admin Username" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="loign_password">Password</label>
+                <input type="password" class="form-control" id="login_password" placeholder="Enter Admin Password" required>
+            </div>                    
+        
+            <button type="submit" class="btn btn-xl btn-dark border-0 rounded-0 paper">Login</button>
+        </form>
+    </div>
+</div>
 {% endblock content%}

@@ -1,5 +1,33 @@
-{% extends "schedule.html" %}
-{% block admin %}
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 mt-5">
+        <div style="height: 40px;" class="mt-4 mb-2 paper"><h4 class="bg-dark text-white h-100 pl-2">Schedule</h4></div>
+        <table class="table table-light text-center paper">
+            <tr><th>Match ID</th><th>Team1</th><th>Team2</th><th>Date</th></tr>
+            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>    
+        </table>
+    </div>
+    <div class="col-sm-12 col-md-6 mt-5">
+        <div style="height: 40px;" class="mt-4 mb-2 paper"><h4 class="bg-dark text-white h-100 pl-2">All Teams</h4></div>
+        <table class="table table-dark table-bordered text-center paper">
+            <tr><th>Team ID</th><th>Team Name</th><th>Players</th></tr>
+            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+            <tr><td>1</td><td>INDIA</td><td>11</td></tr>        
+        </table>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-4 col-sm-6 mt-2">
@@ -11,12 +39,12 @@
 
             <form class="bg-light paper rounded-0 border-0 p-2" id="schedule_match_form" method="POST" action="" onsubmit="alert('Matched Scheduled')">
                 <div class="form-group">
-                    <label for="schedule_match_team1">Team 1 Name</label>
+                    <label for="schedule_match_team1">Team 1 ID</label>
                     <input type="text" class="form-control" id="schedule_match_team1" placeholder="Enter Team Name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="schedule_match_team2">Team 2 Name</label>
+                    <label for="schedule_match_team2">Team 2 ID</label>
                     <input type="text" class="form-control" id="schedule_match_team2" placeholder="Enter Team Name" required>
                 </div>                    
 
@@ -30,8 +58,8 @@
                     <input type="text" class="form-control" id="schedule_match_time" placeholder="HH-MM" required>
                 </div>
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper" onclick='clearForm("schedule_match_form")'>Schedule</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("schedule_match_form")'>Close</button>
+                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Schedule</button>
+                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("schedule_match_form")'>Cancel</button>
             </form>
         </div>
     </div>
@@ -49,8 +77,8 @@
                     <input type="text" class="form-control" id="delete_match_id" placeholder="Enter Match ID" required>
                 </div>                
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper"  onclick='clearForm("delete_match_form")'>Delete</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("delete_match_form")'>Close</button>
+                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Delete</button>
+                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("delete_match_form")'>Cancel</button>
             </form>
         </div>
     </div>
@@ -76,8 +104,8 @@
                     <input type="text" class="form-control" id="team_add_players" placeholder="Enter Number" required>
                 </div>                
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper" onclick='clearForm("add_team_form")'>Add</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("add_team_form")'>Close</button>
+                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Add</button>
+                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("add_team_form")'>Cancel</button>
             </form>
         </div>
     </div>
@@ -95,8 +123,8 @@
                     <input type="text" class="form-control" id="team_delete_id" placeholder="Enter Team ID" required>
                 </div>              
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper" onclick='clearForm("delete_team_form")'>Delete</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("delete_team_form")'>Close</button>
+                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Delete</button>
+                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("delete_team_form")'>Cancel</button>
             </form>
         </div>
     </div>
@@ -118,8 +146,8 @@
                     <input type="text" class="form-control" id="player_add_teamId" placeholder="Team ID" required>
                 </div>               
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper" onclick='clearForm("add_player_form")'>Add</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("add_player_form")'>Close</button>
+                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Add</button>
+                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("add_player_form")'>Cancel</button>
             </form>
         </div>
     </div>
@@ -141,8 +169,8 @@
                     <input type="text" class="form-control" id="player_delete_teamId" placeholder="Team ID" required>
                 </div>               
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper" onclick='clearForm("add_player_form")'>Add</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("add_player_form")'>Close</button>
+                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Add</button>
+                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("delete_player_form")'>Cancel</button>
             </form>
         </div>
     </div>        
@@ -177,4 +205,4 @@
     </div>
 </div>
 
-{% endblock admin %}
+{% endblock content %}
