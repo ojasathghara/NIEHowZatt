@@ -60,7 +60,7 @@ def dashboard():
     return render_template("dashboard.html",title="Dash Board")
 
 @app.route("/match", methods=methods)
-@login_required
+# @login_required
 def match():
     return render_template("match.html", title="Match")
 
