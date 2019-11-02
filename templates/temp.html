@@ -1,0 +1,17 @@
+<div class="col-md-6 col-sm-6 mt-2">
+    <div class="card bg-dark paper rounded-0">
+        <div class="card-body card-dim text-center text-white" id="change_bowler_but">
+            <button type="button" onclick='openForm("change_bowler_form")' class="btn btn-dark btn-xl">Change Bowler</button>
+        </div>              
+
+        <form class="bg-light paper rounded-0 border-0 p-2" id="change_bowler_form" onsubmit="changeBowler(document.getElementById('change_bowler').value())">
+            <div class="form-group">
+                <label for="change_bowler">New Bowler ID</label>
+                <input type="text" class="form-control" id="change_bowler" placeholder="Enter Player ID" required>
+            </div>            
+
+            <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Change</button>
+            <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("change_bowler_form")'>Cancel</button>
+        </form>
+    </div>
+</div>

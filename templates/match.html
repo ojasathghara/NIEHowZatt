@@ -32,8 +32,80 @@
 </div>
 
 <div class="container">
-    
+    <form class="" method="GET" action="">
+        <div class="row">    
+            <div class="col-md-12">
+                <div class="card mt-2 pd-8 paper rounded-0">
+                    <h4 class="text-center">Runs</h4>
+                    <div style="display: flex; justify-content: center;">
+                        <input type="radio" id="run0" name="runs" value="0"> <label class="pr-3" for="run0">0</label>
+                        <input type="radio" id="run1" name="runs" value="1"> <label class="pr-3" for="run1">1</label>
+                        <input type="radio" id="run2" name="runs" value="2"> <label class="pr-3" for="run2">2</label>
+                        <input type="radio" id="run3" name="runs" value="3"> <label class="pr-3" for="run3">3</label>
+                        <input type="radio" id="run4" name="runs" value="4"> <label class="pr-3" for="run4">4</label>
+                        <input type="radio" id="run5" name="runs" value="5"> <label class="pr-3" for="run5">5</label>
+                        <input type="radio" id="run6" name="runs" value="6"> <label class="pr-3" for="run6">6</label>
+                        <input type="radio" id="run7" name="runs" value="7"> <label class="pr-3" for="run7">7</label>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-2">
+                <div class="card paper pl-4 pt-4">
+                    <div>
+                        <input type="radio" id="ball-wide" name="ball" value="wide"> <label class="pl-3" for="wide">Wide</label><br>
+                        <input type="radio" id="ball-noBall" name="ball" value="noBall"> <label class="pl-3" for="noBall">No Ball</label><br>
+                        <input type="radio" id="ball-by" name="ball" value="by"> <label class="pl-3" for="by">By</label><br>
+                        <input type="radio" id="ball-legBy" name="ball" value="legBy"> <label class="pl-3" for="legBy">Leg By</label><br>
+                        <input type="radio" id="ball-noExtra" name="ball" value="noExtra"> <label class="pl-3" for="noExtra">No Extra</label><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-2">
+                <div class="card paper pl-4 py-4">
+                    <div>
+                        <br>
+                        <input type="radio" id="wkt-wkt" name="wkt" value="true"> <label class="pl-3" for="true">Wicket</label><br><br>
+                        <input type="radio" id="wkt-noWkt" name="wkt" value="false"> <label class="pl-3" for="false">No Wicket</label><br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </row>        
+    </form>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 mt-2">
+            <div class="card bg-dark paper rounded-0">
+                <div class="card-body card-dim text-center text-white" id="change_strike">
+                    <button type="button" onclick='changeStrike()' class="btn btn-dark btn-xl">Change Strike</button>
+                </div>              
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 mt-2">
+            <div class="card bg-dark paper rounded-0">
+                <div class="card-body card-dim text-center text-white" id="change_bowler_but">
+                    <button type="button" onclick='openForm("change_bowler_form")' class="btn btn-dark btn-xl">Change Bowler</button>
+                </div>              
+        
+                <form class="bg-light paper rounded-0 border-0 p-2" id="change_bowler_form" method="GET" action="">
+                    <div class="form-group">
+                        <label for="new_bowler_id">New Bowler ID</label>
+                        <input type="text" class="form-control" id="new_bowler_id" placeholder="Enter Player ID" required>
+                    </div>            
+        
+                    <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Change</button>
+                    <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("change_bowler_form")'>Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
     
 {% endblock content %}
