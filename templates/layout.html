@@ -28,7 +28,12 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('points') }}">Points</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('rules') }}">Rules</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+                    {% if session['logged_in'] == True %}
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+                    {% else %}
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+                    {% endif %}
+                    
                 </ul>
             </div>
         </nav>

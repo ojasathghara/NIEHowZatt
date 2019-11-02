@@ -7,13 +7,24 @@
             <h2>Please Login as Admin:</h2>
             <div class="form-group">
                 <label for="login_username">Username</label>
-                <input type="text" class="form-control" id="login_username" placeholder="Enter Admin Username" required>
+                <input type="text" name="login_username" class="form-control" id="login_username" placeholder="Enter Admin Username" required>
             </div>
         
             <div class="form-group">
                 <label for="loign_password">Password</label>
-                <input type="password" class="form-control" id="login_password" placeholder="Enter Admin Password" required>
-            </div>                    
+                <input type="password" name="login_password" class="form-control" id="login_password" placeholder="Enter Admin Password" required>
+            </div>
+            {% if error %}
+                <p><strong>Error: </strong>{{ error }}</p>
+            {% endif %}
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
         
             <button type="submit" class="btn btn-xl btn-dark border-0 rounded-0 paper">Login</button>
         </form>
