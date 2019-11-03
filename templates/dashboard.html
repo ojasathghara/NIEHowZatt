@@ -1,176 +1,179 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<div class="row">
-    <div class="col-sm-12 col-md-6 mt-5">
-        <div style="height: 40px;" class="mt-4 mb-2 paper"><h4 class="bg-dark text-white h-100 pl-2">Schedule</h4></div>
-        <table class="table table-light text-center paper">
-            <tr><th>Match ID</th><th>Team1</th><th>Team2</th><th>Date</th></tr>
-            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
-            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
-            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
-            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
-            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
-            <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>    
-        </table>
+<div class="row mt-5">
+    <div class="col-sm-12 col-md-6">
+        <div class="card border-0">
+            <div class="card-header bg-red text-white rounded-0">Schedule</div>
+            <table class="table table-dark text-center paper">
+                    <tr><th>Match ID</th><th>Team1</th><th>Team2</th><th>Date</th></tr>
+                    <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+                    <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+                    <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+                    <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+                    <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>
+                    <tr><td>1</td><td>INd</td><td>IND</td><td>05/10/20</td></tr>   
+            </table> 
+        </div>
     </div>
-    <div class="col-sm-12 col-md-6 mt-5">
-        <div style="height: 40px;" class="mt-4 mb-2 paper"><h4 class="bg-dark text-white h-100 pl-2">All Teams</h4></div>
-        <table class="table table-dark table-bordered text-center paper">
-            <tr><th>Team ID</th><th>Team Name</th><th>Players</th></tr>
-            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-            <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-            <tr><td>1</td><td>INDIA</td><td>11</td></tr>        
-        </table>
+    <div class="col-sm-12 col-md-6">
+        <div class="card border-0">
+            <div class="card-header bg-red text-white rounded-0">All Teams</div>
+            <table class="table table-dark text-center rounded-0 paper">
+                    <tr><th>Team ID</th><th>Team Name</th><th>Players</th></tr>
+                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
+            </table>
+        </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-4 col-sm-6 mt-2">
     <!-- SCHEDULE MATCH -->
-        <div class="card bg-dark paper rounded-0">
+        <div class="card bg-teal paper rounded-0">
             <div class="card-body card-dim text-center text-white" id="schedule_match">
-                <button type="button" onclick='openForm("schedule_match_form")' class="btn btn-dark btn-xl">Schedule Match</button>
+                <button type="button" onclick='openForm("schedule_match_form")' class="btn btn-dark bg-teal bg-teal border-0 btn-xl">Schedule Match</button>
             </div>              
 
-            <form class="bg-light paper rounded-0 border-0 p-2" id="schedule_match_form" method="GET" action="" onsubmit="alert('Match Scheduled')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="schedule_match_form" method="GET" action="" onsubmit="alert('Match Scheduled')">
                 <div class="form-group">
                     <label for="schedule_match_team1">Team 1 ID</label>
-                    <input type="text" class="form-control" id="schedule_match_team1" placeholder="Enter Team Name" required>
+                    <input type="text" class="form-control rounded-0 rounded-0" id="schedule_match_team1" placeholder="Enter Team Name" required>
                 </div>
 
                 <div class="form-group">
                     <label for="schedule_match_team2">Team 2 ID</label>
-                    <input type="text" class="form-control" id="schedule_match_team2" placeholder="Enter Team Name" required>
+                    <input type="text" class="form-control rounded-0 rounded-0" id="schedule_match_team2" placeholder="Enter Team Name" required>
                 </div>                    
 
                 <div class="form-group">
                     <label for="schedule_match_date">Date</label>
-                    <input type="text" class="form-control" id="schedule_match_date" placeholder="DD/MM/YY" required>
+                    <input type="text" class="form-control rounded-0" id="schedule_match_date" placeholder="DD/MM/YY" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="schedule_match_time">Time</label>
-                    <input type="text" class="form-control" id="schedule_match_time" placeholder="HH-MM" required>
+                    <input type="text" class="form-control rounded-0" id="schedule_match_time" placeholder="HH-MM" required>
                 </div>
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Schedule</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("schedule_match_form")'>Cancel</button>
+                <button type="submit" class="btn btn-dark bg-teal bg-teal border-0 float-left rounded-0 paper">Schedule</button>
+                <button type="button" class="btn btn-dark bg-teal bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("schedule_match_form")'>Cancel</button>
             </form>
         </div>
     </div>
 
     <div class="col-md-4 col-sm-6 mt-2">
         <!-- DELETE MATCH -->
-        <div class="card bg-dark paper rounded-0">
+        <div class="card bg-teal paper rounded-0">
             <div class="card-body card-dim text-center text-white" id="delete_match">
-                <button type="button" onclick='openForm("delete_match_form")' class="btn btn-dark btn-xl">Delete Match</button>
+                <button type="button" onclick='openForm("delete_match_form")' class="btn btn-dark bg-teal border-0 btn-xl">Delete Match</button>
             </div>              
 
-            <form class="bg-light paper rounded-0 border-0 p-2" id="delete_match_form" method="GET" action="" onsubmit="alert('Match Deleted!')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="delete_match_form" method="GET" action="" onsubmit="alert('Match Deleted!')">
                 <div class="form-group">
                     <label for="delete_match_id">Enter Match ID</label>
-                    <input type="text" class="form-control" id="delete_match_id" placeholder="Enter Match ID" required>
+                    <input type="text" class="form-control rounded-0" id="delete_match_id" placeholder="Enter Match ID" required>
                 </div>                
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Delete</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("delete_match_form")'>Cancel</button>
+                <button type="submit" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Delete</button>
+                <button type="button" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("delete_match_form")'>Cancel</button>
             </form>
         </div>
     </div>
     
     <div class="col-md-4 col-sm-6 mt-2">
         <!-- ADD TEAM -->
-        <div class="card bg-dark paper rounded-0">
+        <div class="card bg-teal paper rounded-0">
             <div class="card-body card-dim text-center text-white" id="add_team">
-                <button type="button" onclick='openForm("add_team_form")' class="btn btn-dark btn-xl">Add Team</button>
+                <button type="button" onclick='openForm("add_team_form")' class="btn btn-dark bg-teal border-0 btn-xl">Add Team</button>
             </div>              
 
-            <form class="bg-light paper rounded-0 border-0 p-2" id="add_team_form" method="GET" action="" onsubmit="alert('Team Added')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="add_team_form" method="GET" action="" onsubmit="alert('Team Added')">
                 <div class="form-group">
                     <label for="team_add_name">Team Name</label>
-                    <input type="text" class="form-control" id="team_add_name" placeholder="Enter Team Name" required>
+                    <input type="text" class="form-control rounded-0" id="team_add_name" placeholder="Enter Team Name" required>
                 </div>
                 <div class="form-group">
                     <label for="team_add_captain">Captain Name</label>
-                    <input type="text" class="form-control" id="team_add_captain" placeholder="Captain Name" required>
+                    <input type="text" class="form-control rounded-0" id="team_add_captain" placeholder="Captain Name" required>
                 </div>
                 <div class="form-group">
                     <label for="team_add_players">Number of Players</label>
-                    <input type="text" class="form-control" id="team_add_players" placeholder="Enter Number" required>
+                    <input type="text" class="form-control rounded-0" id="team_add_players" placeholder="Enter Number" required>
                 </div>                
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Add</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("add_team_form")'>Cancel</button>
+                <button type="submit" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Add</button>
+                <button type="button" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("add_team_form")'>Cancel</button>
             </form>
         </div>
     </div>
 
     <div class="col-md-4 col-sm-6 mt-2">
         <!-- DELETE TEAM -->
-        <div class="card bg-dark paper rounded-0">
+        <div class="card bg-teal paper rounded-0">
             <div class="card-body card-dim text-center text-white" id="delete_team">
-                <button type="button" onclick='openForm("delete_team_form")' class="btn btn-dark btn-xl">Delete Team</button>
+                <button type="button" onclick='openForm("delete_team_form")' class="btn btn-dark bg-teal border-0 btn-xl">Delete Team</button>
             </div>              
 
-            <form class="bg-light paper rounded-0 border-0 p-2" id="delete_team_form" method="GET" action="" onsubmit="alert('Team Delete!')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="delete_team_form" method="GET" action="" onsubmit="alert('Team Delete!')">
                 <div class="form-group">
                     <label for="team_delete_id">Team ID</label>
-                    <input type="text" class="form-control" id="team_delete_id" placeholder="Enter Team ID" required>
+                    <input type="text" class="form-control rounded-0" id="team_delete_id" placeholder="Enter Team ID" required>
                 </div>              
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Delete</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("delete_team_form")'>Cancel</button>
+                <button type="submit" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Delete</button>
+                <button type="button" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("delete_team_form")'>Cancel</button>
             </form>
         </div>
     </div>
 
     <div class="col-md-4 col-sm-6 mt-2">
         <!-- ADD PLAYER -->
-        <div class="card bg-dark paper rounded-0">
+        <div class="card bg-teal paper rounded-0">
             <div class="card-body card-dim text-center text-white" id="add_player">
-                <button type="button" onclick='openForm("add_player_form")' class="btn btn-dark btn-xl">Add Player</button>
+                <button type="button" onclick='openForm("add_player_form")' class="btn btn-dark bg-teal border-0 btn-xl">Add Player</button>
             </div>              
 
-            <form class="bg-light paper rounded-0 border-0 p-2" id="add_player_form" method="GET" action="" onsubmit="alert('Player Added')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="add_player_form" method="GET" action="" onsubmit="alert('Player Added')">
                 <div class="form-group">
                     <label for="player_add_name">Player Name</label>
-                    <input type="text" class="form-control" id="player_add_name" placeholder="Enter Player Name" required>
+                    <input type="text" class="form-control rounded-0" id="player_add_name" placeholder="Enter Player Name" required>
                 </div>
                 <div class="form-group">
                     <label for="player_add_teamId">Team ID</label>
-                    <input type="text" class="form-control" id="player_add_teamId" placeholder="Team ID" required>
+                    <input type="text" class="form-control rounded-0" id="player_add_teamId" placeholder="Team ID" required>
                 </div>               
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Add</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("add_player_form")'>Cancel</button>
+                <button type="submit" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Add</button>
+                <button type="button" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("add_player_form")'>Cancel</button>
             </form>
         </div>
     </div>
 
     <div class="col-md-4 col-sm-6 mt-2">
         <!-- DELETE PLAYER -->
-        <div class="card bg-dark paper rounded-0">
+        <div class="card bg-teal paper rounded-0">
             <div class="card-body card-dim text-center text-white" id="delete_player">
-                <button type="button" onclick='openForm("delete_player_form")' class="btn btn-dark btn-xl">Delete Player</button>
+                <button type="button" onclick='openForm("delete_player_form")' class="btn btn-dark bg-teal border-0 btn-xl">Delete Player</button>
             </div>              
 
-            <form class="bg-light paper rounded-0 border-0 p-2" id="delete_player_form" method="GET" action="" onsubmit="alert('Player Deleted!')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="delete_player_form" method="GET" action="" onsubmit="alert('Player Deleted!')">
                 <div class="form-group">
                     <label for="player_delete_id">Player Name</label>
-                    <input type="text" class="form-control" id="player_delete_id" placeholder="Enter Player ID" required>
+                    <input type="text" class="form-control rounded-0" id="player_delete_id" placeholder="Enter Player ID" required>
                 </div>
                 <div class="form-group">
                     <label for="player_delete_teamId">Team ID</label>
-                    <input type="text" class="form-control" id="player_delete_teamId" placeholder="Team ID" required>
+                    <input type="text" class="form-control rounded-0" id="player_delete_teamId" placeholder="Team ID" required>
                 </div>               
 
-                <button type="submit" class="btn btn-dark border-0 float-left rounded-0 paper">Add</button>
-                <button type="button" class="btn btn-dark border-0 float-right rounded-0 paper" onclick='closeForm("delete_player_form")'>Cancel</button>
+                <button type="submit" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Add</button>
+                <button type="button" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("delete_player_form")'>Cancel</button>
             </form>
         </div>
     </div>        
@@ -179,27 +182,27 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 mt-4">
         <!-- START MATCH -->
-        <div class="card paper rounded-0">
+        <div class="card paper rounded-0 bg-orange">
             <div class="card-body card-dim text-center text-white" id="start_match">
-                <button type="button" onclick='openForm("start_match_form")' class="btn btn-light btn-xl">Start Match!</button>
+                <button type="button" onclick='openForm("start_match_form")' class="btn btn-dark bg-orange border-0 btn-xl">Start Match!</button>
             </div>              
             <!--ADD method post to post overs and wickets we have to redirect this url in python file-->
-            <form class="bg-light paper rounded-0 border-0 p-2" id="start_match_form" action="{{ url_for('match') }}">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="start_match_form" action="{{ url_for('match') }}">
                 <div class="form-group">
                     <label for="start_match_matchId">Match ID</label>
-                    <input type="text" class="form-control" id="start_match_matchId" placeholder="Enter Match ID" required>
+                    <input type="text" class="form-control rounded-0" id="start_match_matchId" placeholder="Enter Match ID" required>
                 </div>
                 <div class="form-group">
                     <label for="start_match_nOvers">Overs</label>
-                    <input type="text" class="form-control" id="start_match_nOvers" placeholder="No. of Overs" required>
+                    <input type="text" class="form-control rounded-0" id="start_match_nOvers" placeholder="No. of Overs" required>
                 </div>               
                 <div class="form-group">
                     <label for="start_match_nWickets">Wickets</label>
-                    <input type="text" class="form-control" id="start_match_nWickets" placeholder="No. of Wickets" required>
+                    <input type="text" class="form-control rounded-0" id="start_match_nWickets" placeholder="No. of Wickets" required>
                 </div>               
 
-                <button type="submit" class="btn btn-light border-0 float-left rounded-0 paper"><strong>START!</strong></button>
-                <button type="button" class="btn btn-light border-0 float-right rounded-0 paper" onclick='closeForm("start_match_form")'>CANCEL</button>
+                <button type="submit" class="btn btn-dark bg-orange border-0 float-left rounded-0 paper"><strong>START!</strong></button>
+                <button type="button" class="btn btn-dark bg-orange border-0 float-right rounded-0 paper" onclick='closeForm("start_match_form")'>CANCEL</button>
             </form>
         </div>
     </div>

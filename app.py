@@ -67,7 +67,7 @@ def match():
 
 #--------------------LOGIN-LOGOUT ROUTES--------------------------
 @app.route("/login", methods=methods)
-def login():
+def login():    
     error = None
     if request.method == 'POST':
         if request.form['login_username'] !='admin' or request.form['login_password'] !='password':

@@ -7,8 +7,8 @@
         <div class="col-sm-12 col-md-6">
                 
             <div class="card rounded-0 paper">
-                <div class="card-header bg-dark text-white rounded-0">Ongoing<span id="team_vs" class="float-right">IND vs RSA</span></div>
-                <div class="card-body">
+                <div class="card-header bg-red text-white rounded-0">Ongoing<span id="team_vs" class="float-right">IND vs RSA</span></div>
+                <div class="card-body bg-darker text-white">
                     <span id="tName" class="font-weight-bold">IND :</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="tScore">45</span>/<span id="tWickets">2</span>
                     <span class="font-weight-bold"><div class="float-right">Overs:</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="overs">4.5</span></div>
                     <br><br>
@@ -20,20 +20,20 @@
 
                     <p><span class="font-weight-bold">Strike: </span><span id="bat1">Ojaswi</span></p>
                     <br>
-                    <div class="font-weight-bold float-left bg-light">CRR: <span id="crr">4.5</span></div>
+                    <div class="font-weight-bold bg-darker text-white float-left">CRR: <span id="crr">4.5</span></div>
                     <div class="font-weight-bold float-right">
                         This Over: &nbsp;&nbsp;&nbsp;<span id="this_over_str">1 2 0 4 0 0</span>
                     </div>
                 </div>
 
-                <button onclick="window.location.href = '{{ url_for('ongoing') }}';" class="btn btn-dark border-white border-1 float-right rounded-0">Details >></button>
+                <button onclick="window.location.href = '{{ url_for('ongoing') }}';" class="btn bg-red btn-dark border-0 float-right rounded-0">Details >></button>
             </div>
 
         </div>
         <!--points-->
         <div class="col-sm-12 col-md-6">
             <div class="card border-0">
-                <div class="card-header bg-dark text-white rounded-0">Top Teams</div>
+                <div class="card-header bg-red text-white rounded-0">Top Teams</div>
                 <table class="table table-dark text-center rounded-0 paper">
                     <tr><th>Position</th><th>Team</th><th>Points</th></tr>
                     <tr><td>1</td><td>IND</td><td>5</td></tr>
@@ -44,15 +44,15 @@
                 </table>
             </div>
             <button onclick="window.location.href = '{{ url_for('points') }}';" 
-            class="btn btn-dark border-0 float-right rounded-0 paper">
+            class="btn btn-dark bg-orange border-0 float-right rounded-0 paper">
                 More >>
             </button>
         </div>
         <!--schedule-->
         <div class="col-sm-12 col-md-12 mt-3">
             <div class="card border-0">
-                <div class="card-header bg-dark text-white rounded-0">Schedule</div>
-                <table class="table table-light text-center paper">
+                <div class="card-header bg-red text-white rounded-0">Schedule</div>
+                <table class="table table-dark text-center paper">
                     <tr><th>Team1</th><th>Team2</th><th>Date</th></tr>
                     <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
                     <tr><td>INd</td><td>IND</td><td>05/10/20</td></tr>
@@ -62,7 +62,7 @@
                 </table> 
             </div>
             <button onclick="window.location.href = '{{ url_for('schedule') }}';" 
-            class="btn btn-dark border-0 float-right rounded-0 paper mb-5">
+            class="btn btn-dark border-0 float-right rounded-0 paper mb-5 bg-orange">
                 See Full Schedule >>
             </button>
         </div>
