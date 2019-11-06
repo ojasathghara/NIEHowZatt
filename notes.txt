@@ -1,13 +1,4 @@
-! to get form data in js:
-	use button.onClick() and get the data using ids and anything
-
-! add an end inning button which will store 1st inning data and disable the button after on click.
-
-! when end match display the results and get back to dashboard.
-
-! forget about using sql Alchemy.
-
-! in delete player form change label to player id
+!give all forms a name and all submit buttons a name
 
 
 1. add team:
@@ -68,64 +59,41 @@
 
 
 
-
-
-During games:
+7. enter match summary:
 	-get match_id
-	-get num_overs
-	-get num_wickets
 	
-	if this match in schedule: (alchemy)
-		-get both team_names 
-		-redirect to match dashboard and flash a form
-			-get 1st team_name and update cards
-			-get batsman1_name and update cards
-			-get batsman2_name and update cards
-			-get bowler_name and change
+	if this match in "schedule"	(alchemy)
+		-get winner team id
+		-update points table
+		-delete match from schedule
 
-		-maintain an object of batsman1, batsman2 and bowler
+8. enter player stats:
+	-get team id
+	if found:
+		-get player id
+		if found:
+			-increase matches played
+			-get runs and increase
+			-get balls played and increase
+			-get wickets taken
+			-get runs given
+			-get balls throwns
+			
+			update run rate?
+
 		
-		start a loop with conditions (ball <= 6*num_over && wkt <= num_wkts):
-			-submit the ball
-			-increase the run
-			-increase the balls if not extra
-			-enter the balls into array
-			-update crr
-			-update the cards
-			
-			if this ball was wicket:
-				-increase no. wickets
-				-flash a form &
-				-enter new batsman_name store in batsman1_name
-				-send batsman_object json to flask to update?
-				-update cards
-			
-			if change strike is clicked:
-				-swap batsman1 and batsman2
-			
-			if ball % 6 == 0:
-				-increase over
-				-empty over array
-				-send bowler object json to flask?
-				-flash a form and get new bowler name
-		--end the 1st inning.
-			-update the inning
-			-start the process again
-		
-player_object {
-	type: bat/bowl
-	team_name
+	
+indie team table:
+	team_id
 	player_id
-	runs_scored
-	balls_played
-	wickets_taken
-	balls_thrown
-}
-		
-
-		
-	
-
+	player_name
+	matches_played
+	runs
+	balls played
+	runrate?
+	wickets
+	runs given
+	balls thrown
 
 
 

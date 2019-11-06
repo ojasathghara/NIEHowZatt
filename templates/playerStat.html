@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!--
+
+8. enter player stats:
+	-get team id
+	if found:
+		-get player id
+		if found:
+			-increase matches played
+			-get runs and increase
+			-get balls played and increase
+			-get wickets taken
+			-get runs given
+			-get balls throwns
+			
+			update run rate?
+
+-->
+
+<div class="card paper rounded-0 mt-5">
+    <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="player_stat_form" method="POST" action="" onsubmit="alert('Updated!')">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="team_id">Team ID</label>
+                <input type="text" name="team_id" class="form-control rounded-0" id="team_id" placeholder="Enter Team ID" required>
+            </div>
+            <div class="col-md-6">
+                <label for="player_id">Player ID</label>
+                <input type="text" name="player_id" class="form-control rounded-0" id="player_id" placeholder="Enter Player ID" required>
+            </div>
+        </div>
+        <br>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <label for="runs_made">Runs Scored</label>
+                <input type="text" name="runs_scored" class="form-control rounded-0" id="runs_scored" placeholder="Enter Runs" required>
+            </div>
+            <div class="col-md-6">
+                <label for="balls_faced">Balls Faced</label>
+                <input type="text" name="runs_faced" class="form-control rounded-0" id="balls_faced" placeholder="Enter Balls" required>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label for="wickets">Wickets</label>
+                <input type="text" name="wickets" class="form-control rounded-0" id="wickets" placeholder="Enter Wickets" required>
+            </div>
+            <div class="col-md-4">
+                <label for="runs_Given">Runs Given</label>
+                <input type="text" name="runs_Given" class="form-control rounded-0" id="runs_Given" placeholder="Enter Runs Given" required>
+            </div>
+            <div class="col-md-4">
+                <label for="balls_thrown">Wickets</label>
+                <input type="text" name="balls_thrown" class="form-control rounded-0" id="balls_thrown" placeholder="Enter Balls" required>
+            </div>
+        </div>
+        <br>
+
+        <button type="submit" name="player_stat" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">UPDATE</button>
+        <button type="reset" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper">Reset Form</button>
+    </form>
+</div>
+
+{% endblock content%}

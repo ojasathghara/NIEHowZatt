@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!--
+-get match_id
+	
+	if this match in "schedule"	(alchemy)
+        -get winner team id update points by 2
+        -get loser team id  update points by 0
+        -get draw or not check-box https://stackoverflow.com/questions/31859903/get-the-value-of-a-checkbox-in-flask
+		-update points table
+        -delete match from schedule
+
+-->
+
+
+<div class="card paper rounded-0 mt-5">
+    <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="match_summary_form" method="POST" action="" onsubmit="alert('Updated!')">
+        <div class="form-group">
+            <label for="match_id">Enter Match ID</label>
+            <input type="text" name="match_id" class="form-control rounded-0" id="delete_match_id" placeholder="Enter Match ID" required>
+        </div>                
+
+        <div class="form-group">
+            <label for="win_team_id">Enter Winner Team ID</label>
+            <input type="text" name="win_id" class="form-control rounded-0" id="win_team_id" placeholder="Enter Team ID" required>
+        </div>
+
+        <div class="form-group">
+            <label for="lose_team_id">Loser Winner Team ID</label>
+            <input type="text" name="lose_id" class="form-control rounded-0" id="lose_team_id" placeholder="Enter Team ID" required>
+        </div>
+
+        <button type="submit" name="summary" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">UPDATE</button>
+        <button type="reset" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper">Reset Form</button>
+        
+        <div class="clear_float"></div>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="draw" class="form-check text-center">DRAW?
+    </form>
+</div>
+
+{% endblock content%}

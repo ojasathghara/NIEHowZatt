@@ -51,22 +51,21 @@ def rules():
 def about():
     return render_template("about.html",title="About")
 
-#------------------------MATCH DETAILS ROUTE---------------------
-@app.route("/ongoing", methods=methods)
-def ongoing():
-    return render_template("ongoing.html",title="Current Match")
-
 #-------------------ADMIN ROUTES---------------------------------
 @app.route("/dashboard", methods=methods)
 @login_required
 def dashboard():
     return render_template("dashboard.html",title="Dash Board")
 
-@app.route("/match", methods=methods)
+@app.route("/summary", methods=methods)
 @login_required
-def match():
-    return render_template("match.html", title="Match")
+def summary():
+    return render_template("summary.html", title="Summary")
 
+@app.route("/playerStat.html", methods=methods)
+@login_required
+def playerStat():
+    return render_template("playerStat.html", title="Stats")
 
 #--------------------LOGIN-LOGOUT ROUTES--------------------------
 @app.route("/login", methods=methods)
