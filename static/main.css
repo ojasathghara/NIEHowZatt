@@ -22,14 +22,6 @@
     background-color: #2E9699;
 }
 
-
-
-
-
-
-
-
-
 .table-header{
     height: 25px;
 }
@@ -59,4 +51,17 @@
 }
 #change_bowler_form {
     display: none;
+}
+
+#inning_start_form {
+
+    box-shadow: 4px 4px 10px 25px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    height: 40%;
+    width: 50%;
+    margin: auto auto;
+    display: block;
 }

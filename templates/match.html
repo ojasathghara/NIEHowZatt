@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="card mt-5 paper rounded-0">
-    <div class="card-header bg-red text-white rounded-0">Ongoing<span id="team_vs" class="float-right">IND vs RSA</span></div>
+    <div class="card-header bg-red text-white rounded-0">Ongoing<span id="team_vs" class="ml-4">IND vs RSA</span><span id="inning_no" class="float-right">Inning: 0</span></div>
     <div class="card-body bg-darker text-white">
         <span id="tName" class="font-weight-bold">IND :</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="tScore">45</span>/<span id="tWickets">2</span>
         <span class="font-weight-bold"><div class="float-right">Overs:</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="overs">4.5</span></div>
@@ -83,7 +83,7 @@
 </form>
 
 <div class="row">
-    <div class="col-md-6 col-sm-6 mt-2">
+    <div class="col-md-4 col-sm-4 mt-2">
         <div class="card bg-teal paper rounded-0">
             <div class="card-body card-dim text-center text-white" id="change_strike">
                 <button type="button" onclick='changeStrike()' class="btn btn-dark bg-teal border-0 btn-xl">Change Strike</button>
@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <div class="col-md-6 col-sm-6 mt-2">
+    <div class="col-md-4 col-sm-4 mt-2">
         <div class="card bg-teal paper rounded-0">
             <div class="card-body card-dim text-center text-white" id="change_bowler_but">
                 <button type="button" onclick='openForm("change_bowler_form")' class="btn btn-dark bg-teal border-0 btn-xl">Change Bowler</button>
@@ -108,6 +108,15 @@
             </form>
         </div>
     </div>
+
+    <div class="col-md-4 col-sm-4 mt-2">
+        <div class="card bg-teal paper rounded-0">
+            <div class="card-body card-dim text-center text-white" id="change_strike">
+                <button type="button" onclick='changeInning()' class="btn btn-dark bg-teal border-0 btn-xl">Change Inning</button>
+            </div>              
+        </div>
+    </div>
+
     <div class="col-md-12 col-sm-12 mt-2">
         <div class="card bg-red paper rounded-0">
             <div class="card-body card-dim text-center text-white" id="end_match">
@@ -117,6 +126,58 @@
     </div>
 </div>
 
+<div id="inning_start_form" class="card border-0">
+    <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="start_inning_form">
+        <div class="form-group">
+            <label for="team1_name"></label>
+            <input type="text" class="form-control rounded-0" id="team1_name" placeholder="Enter Batting Team Name" required>
+        </div>
+        <div class="form-group">
+            <label for="team2_name"></label>
+            <input type="text" class="form-control rounded-0" id="team2_name" placeholder="Enter Bowling Team Name" required>
+        </div>
+        <div class="form-group">
+            <label for="bat1">Enter Batsman 1: </label>
+            <input type="text" class="form-control rounded-0" id="bat1" placeholder="Enter Strike Name" required>
+        </div>
+        <div class="form-group">
+            <label for="bat2">Enter Batsman 2: </label>
+            <input type="text" class="form-control rounded-0" id="bat2" placeholder="Enter Running Name" required>
+        </div>
+        <div class="form-group">
+            <label for="bowler">Enter Bowler: </label>
+            <input type="text" class="form-control rounded-0" id="bowler" placeholder="Enter Player Name" required>
+        </div>                    
+
+        <button type="submit" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Start</button>
+        <button type="button" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper" onclick='hide("inning_start_form")'>OK</button>
+    </form>
+</div>
+
 <br><br>
-    
 {% endblock content %}
+
+{% block script %}
+<script>
+    var batt_team, bowl_team;
+    var bat1, bat2;
+    var bowler;
+    var runs, bys, wickets, overs
+
+    startInning();
+    function startInning() {
+        batt_team = document.getElementById("team1_name").value;
+        bowl_team = document.getElementById("team2_name").value;
+        
+        bat1 = document.getElementById("bat1").value;
+        bat2 = document.getElementById("bat2").value;
+
+        bowler = document.getElementById("bowler").value;
+    }
+
+
+
+    console.log(batt_team);
+
+</script>
+{% endblock script %}

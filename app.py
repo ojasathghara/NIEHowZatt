@@ -9,6 +9,9 @@ methods = ['GET', 'POST'] #defined for ease
 app = Flask(__name__)
 app.secret_key = '1499058058097067107'
 
+
+# -----------------------------------------------------ROUTES------------------------------------------------------------
+
 #------------------DECORATOR WRAPPER FOR MANAGING LOGIN SESSIONS
 def login_required(f):
     @wraps(f)
@@ -83,6 +86,8 @@ def login():
 def logout():
     session.pop('logged_in', None)
     return redirect(url_for('home'))
+
+# ----------------------------------------------------------------ROUTES END-----------------------------------------------------------
 
 if __name__ == "__main__":
     app.run(debug=True)

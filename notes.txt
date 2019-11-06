@@ -1,1 +1,141 @@
-! add inning number
+! to get form data in js:
+	use button.onClick() and get the data using ids and anything
+
+! add an end inning button which will store 1st inning data and disable the button after on click.
+
+! when end match display the results and get back to dashboard.
+
+! forget about using sql Alchemy.
+
+! in delete player form change label to player id
+
+
+1. add team:
+	-get team_name
+	-get captain_name
+	-get no. of players
+
+	insert data to "teams" table (alchemy)
+	make a new table with <team_name> cols:(mysqlconnector)
+
+		-player id (auto generated)
+		-player name
+		-runs scored
+		-balls played
+		-strike rate
+		-balls thrown
+		-wickets taken
+
+2. delete team:
+	-get team id
+	-search team id on "teams" table, if found, get <team_name> (alchemy)
+	-delete the team from "teams" table (alchemy)
+	-delete the table named <team_name> (mysqlconnector)
+	
+3. add player:
+	-get player_name
+	-get team_id
+	-search "teams" table for team_id
+	-if found:
+		-find <team_name> of corresponding team_id from "teams" (alchemy)
+		-insert player to <team_name> table (mysqlconnector)
+
+4. delete player:
+	-get player_id
+	-get team_id
+	search team_id in "teams" (alchemy)
+	if found:
+		get team_name from "teams" (alchemy)
+		search <team_name> table for <player_id> (alchemy)
+		if found:
+			-delete player (mysqlconnector)
+
+5. schedule match:
+	-get team1_id
+	-get team2_id
+	-get date
+	-get time
+	-generate match_id
+
+	if both teams found in "teams" table: (alchemy)
+		-add this schedule to schedule table. (alchemy)
+
+6. delete match:
+	-get match_id
+	
+	if this match in "schedule":	(alchemy)
+		-delete the match	(alchemy)
+
+
+
+
+
+During games:
+	-get match_id
+	-get num_overs
+	-get num_wickets
+	
+	if this match in schedule: (alchemy)
+		-get both team_names 
+		-redirect to match dashboard and flash a form
+			-get 1st team_name and update cards
+			-get batsman1_name and update cards
+			-get batsman2_name and update cards
+			-get bowler_name and change
+
+		-maintain an object of batsman1, batsman2 and bowler
+		
+		start a loop with conditions (ball <= 6*num_over && wkt <= num_wkts):
+			-submit the ball
+			-increase the run
+			-increase the balls if not extra
+			-enter the balls into array
+			-update crr
+			-update the cards
+			
+			if this ball was wicket:
+				-increase no. wickets
+				-flash a form &
+				-enter new batsman_name store in batsman1_name
+				-send batsman_object json to flask to update?
+				-update cards
+			
+			if change strike is clicked:
+				-swap batsman1 and batsman2
+			
+			if ball % 6 == 0:
+				-increase over
+				-empty over array
+				-send bowler object json to flask?
+				-flash a form and get new bowler name
+		--end the 1st inning.
+			-update the inning
+			-start the process again
+		
+player_object {
+	type: bat/bowl
+	team_name
+	player_id
+	runs_scored
+	balls_played
+	wickets_taken
+	balls_thrown
+}
+		
+
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
