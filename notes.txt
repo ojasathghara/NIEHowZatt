@@ -1,4 +1,4 @@
-!give all forms a name and all submit buttons a name
+!DataBase and query: https://stackoverflow.com/questions/45558349/flask-display-database-from-python-to-html/45569438
 
 
 1. add team:
@@ -16,6 +16,7 @@
 		-strike rate
 		-balls thrown
 		-wickets taken
+		-player points (some formula)
 
 2. delete team:
 	-get team id
@@ -95,15 +96,27 @@ indie team table:
 	runs given
 	balls thrown
 
+function:
+	-calculate strike rate of the player
 
 
+triggers:
+	-can make individual triggers for all teams to update strike rate.
 
+joins:
+	-after updating all player details, the points will get updated
+	-just after updating the match do following
+		-get both team names from schedule (stored procedure)
+		-join both teams table and get player with max points
+		-man of the match
+		-store last as soon as admin update match details make dictionary as follows:
 
+{	team1_name: <name>,
+	team2_name: <name>,
+	winner_team: <name>,
+	man_of_match: <name>  get man of the match as input
+}	this can't be done "just tell teachers that we are storing these details in a buffer table and updating it later"
 
-
-
-
-
-
+show on last match page.
 
 

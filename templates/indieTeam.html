@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card mt-5 paper border-0 bg-darker rounded-0 text-white">
+    <div class="card-header rounded-0 border-0 bg-red">
+        <p>Team: {{ team['team_name'] }}</p>
+        <p>Captain: {{ team['team_captain'] }}</p>
+        <p>Matches: {{ team['matches'] }}</p>
+        <p>Points: {{ team['points'] }}</p>
+        <p>Top Player: {{ team['top_player'] }}</p>
+    </div>
+    <div class="card-body">
+        <p>Last Match: {{ match['team1_name'] }}  V/s  {{ match['team2_name'] }}</p>
+        <p>Winner: {{ match['winner_team'] }}</p>
+        <p>Man of Match: {{ match['man_of_match'] }}</p>
+    </div>
+</div>
+
+{% endblock content%}

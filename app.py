@@ -9,6 +9,21 @@ methods = ['GET', 'POST'] #defined for ease
 app = Flask(__name__)
 app.secret_key = '1499058058097067107'
 
+match = {
+    'team1_name': "India",
+    'team2_name': "RSA",
+    'winner_team': "India",
+    'man_of_match': "Ojaswi"
+}
+
+indieTeamDetails = {
+    'team_name': "India",
+    'team_captain': "Ojaswi",
+    'top_player': "Nikhil",   #must be updated after sql query.
+    'matches': 5,
+    'points': 10
+}
+
 
 # -----------------------------------------------------ROUTES------------------------------------------------------------
 
@@ -51,7 +66,16 @@ def rules():
 def about():
     return render_template("about.html",title="About")
 
-#-------------------ADMIN ROUTES---------------------------------
+@app.route("/lastMatch")
+def lastMatch():
+    return render_template("lastMatch.html", title="Last Match", match=match)
+
+@app.route("/teams/<teamName>")
+def indieTeam(teamName):
+    return render_template("indieTeam.html", team=indieTeamDetails)
+
+
+#-------------------ADMIN and FORMS ROUTES---------------------------------
 @app.route("/dashboard", methods=methods)
 @login_required
 def dashboard():

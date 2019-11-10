@@ -13,8 +13,22 @@
 
 -->
 
+<div class="card border-0 mt-5">
+    <div class="card-header bg-red text-white rounded-0">All Teams</div>
+    <table class="table table-dark text-center rounded-0 paper">
+        <tr><th>Team ID</th><th>Team Name</th><th>Captain</th><th>Players</th></tr>
+        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
+        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
+        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
+        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
+        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
+        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
+        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>   
+    </table>
+</div>
 
-<div class="card paper rounded-0 mt-5">
+
+<div class="card paper rounded-0 mt-2">
     <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="match_summary_form" method="POST" action="" onsubmit="alert('Updated!')">
         <div class="form-group">
             <label for="match_id">Enter Match ID</label>
@@ -22,13 +36,18 @@
         </div>                
 
         <div class="form-group">
-            <label for="win_team_id">Enter Winner Team ID</label>
+            <label for="win_team_id">Winner Team</label>
             <input type="text" name="win_id" class="form-control rounded-0" id="win_team_id" placeholder="Enter Team ID" required>
         </div>
 
         <div class="form-group">
-            <label for="lose_team_id">Loser Winner Team ID</label>
+            <label for="lose_team_id">Loser Team</label>
             <input type="text" name="lose_id" class="form-control rounded-0" id="lose_team_id" placeholder="Enter Team ID" required>
+        </div>
+
+        <div class="form-group">
+            <label for="man_of_match_id">Man of Match</label>
+            <input type="text" name="man_of_match_id" class="form-control rounded-0" id="man_of_match_id" placeholder="Enter Player Name" required>
         </div>
 
         <button type="submit" name="summary" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">UPDATE</button>
