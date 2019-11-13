@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="row mt-5">
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-12 col-md-12">
         <div class="card border-0">
             <div class="card-header bg-red text-white rounded-0">Schedule</div>
             <table class="table table-dark text-center paper">
@@ -16,23 +16,39 @@
             </table> 
         </div>
     </div>
-    <div class="col-sm-12 col-md-6">
-        <div class="card border-0">
-            <div class="card-header bg-red text-white rounded-0">All Teams</div>
-            <table class="table table-dark text-center rounded-0 paper">
-                    <tr><th>Team ID</th><th>Team Name</th><th>Players</th></tr>
-                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-                    <tr><td>1</td><td>INDIA</td><td>11</td></tr>
-            </table>
-        </div>
-    </div>
 </div>
 
-<div class="row">
+<div class="row mt-5 md-3">
+    <div class="col-md-6 col-sm-12">
+        <!-- ENTER SUMMARY-->
+        <div class="card bg-orange paper rounded-0">            
+            <div class="card-body card-dim text-center text-white" id="allTeamsAdm">
+                <button type="button" onclick="window.location.href = '{{ url_for('allTeamsAdm') }}';" 
+                class="btn btn-dark bg-orange border-0 btn-xl">All Teams</button>
+            </div>
+        </div>
+    </div> 
+    
+    <div class="col-md-6 col-sm-12">
+        <!-- ENTER STATS-->
+        <div class="card bg-orange paper rounded-0">            
+            <div class="card-body card-dim text-center text-white" id="allPlayers">
+                <button type="button" onclick="window.location.href = '{{ url_for('allPlayers') }}';" 
+                class="btn btn-dark bg-orange border-0 btn-xl">All Players</button>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+    
+
+</div>
+
+
+</div>
+
+<div class="row mt-5">
     <div class="col-md-4 col-sm-6 mt-2">
     <!-- SCHEDULE MATCH -->
         <div class="card bg-teal paper rounded-0">
@@ -178,7 +194,7 @@
     <div class="col-md-6 col-sm-12 mt-2">
         <!-- ENTER SUMMARY-->
         <div class="card bg-orange paper rounded-0">            
-            <div class="card-body card-dim text-center text-white" id="delete_player">
+            <div class="card-body card-dim text-center text-white" id="summary">
                 <button type="button" onclick="window.location.href = '{{ url_for('summary') }}';" 
                 class="btn btn-dark bg-orange border-0 btn-xl">Enter Match Summary</button>
             </div>
@@ -188,15 +204,16 @@
     <div class="col-md-6 col-sm-12 mt-2">
         <!-- ENTER STATS-->
         <div class="card bg-orange paper rounded-0">            
-            <div class="card-body card-dim text-center text-white" id="delete_player">
+            <div class="card-body card-dim text-center text-white" id="playerStat">
                 <button type="button" onclick="window.location.href = '{{ url_for('playerStat') }}';" 
                 class="btn btn-dark bg-orange border-0 btn-xl">Enter Player Stats</button>
             </div>
         </div>
     </div> 
-
-    
 </div>
+<br>
+<br>
+<br>
 
 
 {% endblock content %}

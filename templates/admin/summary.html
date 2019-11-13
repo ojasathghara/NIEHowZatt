@@ -1,34 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<!--
--get match_id
-	
-	if this match in "schedule"	(alchemy)
-        -get winner team id update points by 2
-        -get loser team id  update points by 0
-        -get draw or not check-box https://stackoverflow.com/questions/31859903/get-the-value-of-a-checkbox-in-flask
-		-update points table
-        -delete match from schedule
-
--->
-
-<div class="card border-0 mt-5">
-    <div class="card-header bg-red text-white rounded-0">All Teams</div>
-    <table class="table table-dark text-center rounded-0 paper">
-        <tr><th>Team ID</th><th>Team Name</th><th>Captain</th><th>Players</th></tr>
-        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
-        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
-        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
-        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
-        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
-        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>
-        <tr><td>1</td><td>INDIA</td><td>Dhoni</td><td>11</td></tr>   
-    </table>
-</div>
-
-
-<div class="card paper rounded-0 mt-2">
+<div class="card paper rounded-0 mt-5">
     <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="match_summary_form" method="POST" action="" onsubmit="alert('Updated!')">
         <div class="form-group">
             <label for="match_id">Enter Match ID</label>

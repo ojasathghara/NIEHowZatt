@@ -50,10 +50,6 @@ def home():
 def schedule():
     return render_template("schedule.html",title="Schedule")
 
-@app.route("/teams")
-def teams():
-    return render_template("teams.html",title="All Teams")
-
 @app.route("/points")
 def points():
     return render_template("points.html",title="Points")
@@ -79,17 +75,31 @@ def indieTeam(teamName):
 @app.route("/dashboard", methods=methods)
 @login_required
 def dashboard():
-    return render_template("dashboard.html",title="Dash Board")
+    return render_template("./admin/dashboard.html",title="Dash Board")
 
-@app.route("/summary", methods=methods)
+@app.route("/dashboard/summary", methods=methods)
 @login_required
 def summary():
-    return render_template("summary.html", title="Summary")
+    return render_template("./admin/summary.html", title="Summary")
 
-@app.route("/playerStat.html", methods=methods)
+@app.route("/dashboard/playerStat", methods=methods)
 @login_required
 def playerStat():
-    return render_template("playerStat.html", title="Stats")
+    return render_template("./admin/playerStat.html", title="Stats")
+
+
+
+@app.route("/dashboard/allTeams", methods=methods)
+@login_required
+def allTeamsAdm():
+    return render_template("./admin/teams.html", title="Stats")
+
+
+@app.route("/dashboard/allPlayers", methods=methods)
+@login_required
+def allPlayers():
+    return render_template("./admin/allPlayers.html", title="Stats")
+
 
 #--------------------LOGIN-LOGOUT ROUTES--------------------------
 @app.route("/login", methods=methods)
@@ -103,7 +113,7 @@ def login():
             session['logged_in'] = True
             return redirect(url_for('dashboard'))
 
-    return render_template("login.html",title="Login admin", error=error)
+    return render_template("./admin/login.html",title="Login admin", error=error)
 
 @app.route("/logout")
 def logout():
