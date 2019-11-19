@@ -3,12 +3,24 @@
 
 <div class="card mt-5 paper border-0 bg-darker rounded-0 text-white">
     <div class="card-header rounded-0 border-0 bg-red">
-        <p>Team: {{ team['team_name'] }}</p>
-        <p>Captain: {{ team['team_captain'] }}</p>
-        <p>Matches: {{ team['matches'] }}</p>
-        <p>Points: {{ team['points'] }}</p>
+        <p>Team: {{ teamStat['name'] }}</p>
+        <p>Captain: {{ teamStat['captain'] }}</p>
+        <p>Matches: {{ teamStat['matches'] }}</p>
+        <p>Points: {{ teamStat['points'] }}</p>
     </div>
-    
 </div>
+
+<div class="card-header bg-red text-white rounded-0 mt-2">{{ teamStat['name'] }}</div>
+
+<table class="table table-dark text-center paper">
+        <th>Name</th><th>Runs</th><th>Balls</th><th>St. Rate</th><th>Balls_Th</th><th>Runs_gv</th><th>Wickets</th></tr>
+        {% for player in players %}
+            <tr>
+                {% for i in player %}
+                    <td>{{ i }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+</table>
 
 {% endblock content%}

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, redirect, request, session, flash
 from functools import wraps
+from database import Database, Player, Team, Match
 
 methods = ['GET', 'POST'] #defined for ease
 
@@ -24,9 +25,13 @@ indieTeamDetails = {
     'points': 10
 }
 
+#----------------------------------------------------DATABASE QUERIES-------------------------------------------------------------------------
+db = Database()
+
+
+
 
 # -----------------------------------------------------ROUTES------------------------------------------------------------
-
 #------------------DECORATOR WRAPPER FOR MANAGING LOGIN SESSIONS
 def login_required(f):
     @wraps(f)
@@ -44,15 +49,27 @@ def login_required(f):
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html",title="Home")
+
+    topTeams = db.topTeams()   #home
+    matches = db.homeMatches()  #home
+
+    return render_template("home.html",title="Home", teams=topTeams, matches=matches)
 
 @app.route("/schedule")
 def schedule():
-    return render_template("schedule.html",title="Schedule")
+
+    allMatches = db.fullMatches() #./schedule
+
+    return render_template("schedule.html",title="Schedule", schedule=allMatches)
 
 @app.route("/points")
 def points():
-    return render_template("points.html",title="Points")
+
+    allPoints = db.points() #./points
+
+    allTeams = db.allTeams()    #./points
+
+    return render_template("points.html",title="Points", points=allPoints, teams=allTeams)
 
 @app.route("/rules")
 def rules():
@@ -68,14 +85,20 @@ def lastMatch():
 
 @app.route("/teams/<teamName>")
 def indieTeam(teamName):
-    return render_template("indieTeam.html", team=indieTeamDetails)
+
+    team = db.indieTeam(teamName)
+
+    return render_template("indieTeam.html",title=team[0]['name'], teamStat=team[0], players=team[1])
 
 
 #-------------------ADMIN and FORMS ROUTES---------------------------------
 @app.route("/dashboard", methods=methods)
 @login_required
 def dashboard():
-    return render_template("./admin/dashboard.html",title="Dash Board")
+
+    ad_matches = db.ad_matches()    #./dashboard
+
+    return render_template("./admin/dashboard.html",title="Dash Board", matches=ad_matches)
 
 @app.route("/dashboard/summary", methods=methods)
 @login_required
@@ -92,13 +115,19 @@ def playerStat():
 @app.route("/dashboard/allTeams", methods=methods)
 @login_required
 def allTeamsAdm():
-    return render_template("./admin/teams.html", title="Stats")
+
+    ad_teams = db.ad_teams()    #./dashboard/allTeams
+
+    return render_template("./admin/teams.html", title="Stats", teams=ad_teams)
 
 
 @app.route("/dashboard/allPlayers", methods=methods)
 @login_required
 def allPlayers():
-    return render_template("./admin/allPlayers.html", title="Stats")
+
+    ad_players = db.ad_players()    #./dashboard/allPlayers
+
+    return render_template("./admin/allPlayers.html", title="Stats", players=ad_players)
 
 
 #--------------------LOGIN-LOGOUT ROUTES--------------------------

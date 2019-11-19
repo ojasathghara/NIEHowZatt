@@ -5,12 +5,30 @@
     <div class="card-header bg-red text-white rounded-0">Points</div>
     <table class="table table-dark text-center rounded-0 paper">
         <tr></th><th>Team</th><th>Matches</th><th>Wins</th><th>Loses</th><th>Draw</th><th>Points</th></tr>
-        <tr><td>IND</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td></tr>
-        <tr><td>IND</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td></tr>
-        <tr><td>IND</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td></tr>
-        <tr><td>IND</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td></tr>
-        <tr><td>IND</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td></tr>
+        {% for point in points %}
+            <tr><td>{{ point[0] }}</td><td>{{ point[1] }}</td><td>{{ point[2] }}</td><td>{{ point[3] }}</td><td>{{ point[4] }}</td><td>{{ point[5] }}</td></tr>
+        {% endfor %}
     </table>
+
+    <div class="row mt-5">
+        {% for team in teams %}
+        
+        <div class="col-md-4 mb-2">
+        <div class="card bg-teal paper rounded-0">
+            <div class="card-body card-dim text-center text-white" id="schedule_match">
+                <button type="button" name={{ team[0] }} 
+                class="btn btn-dark bg-teal bg-teal border-0 btn-xl" 
+                onclick="window.location.href = '{{ url_for('indieTeam', teamName=team[0], title=team[0]) }}';">
+                {{ team[0] }} <br> {{ team[1] }}</button>
+            </div>
+        </div>
+        </div>
+
+        {% endfor %}
+    </div>
 </div>
+
+<br><br><br>
+<br>
 
 {% endblock content%}

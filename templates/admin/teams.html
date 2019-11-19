@@ -7,11 +7,9 @@
     <div class="card-header bg-red text-white rounded-0">All Teams</div>
     <table class="table table-dark text-center paper">
             <tr><th>Team ID</th><th>Team Name</th>
-            <tr><td>1</td><td>INd</td>
-            <tr><td>1</td><td>INd</td>
-            <tr><td>1</td><td>INd</td>
-            <tr><td>1</td><td>INd</td>
-            <tr><td>1</td><td>INd</td>
+            {% for team in teams %}
+                <tr><td>{{ team[0] }}</td><td>{{ team[1] }}</td>
+            {% endfor %}            
     </table> 
 </div>
 

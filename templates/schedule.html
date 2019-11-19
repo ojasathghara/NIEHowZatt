@@ -4,13 +4,10 @@
 <div class="card border-0 mt-5">
     <div class="card-header bg-red text-white rounded-0">Schedule</div>
     <table class="table table-dark text-center paper">
-            <th>Team 1</th><th>Team 2</th><th>Date</th></tr>
-            <td>INd</td><td>IND</td><td>05/10/20</td></tr>
-            <td>INd</td><td>IND</td><td>05/10/20</td></tr>
-            <td>INd</td><td>IND</td><td>05/10/20</td></tr>
-            <td>INd</td><td>IND</td><td>05/10/20</td></tr>
-            <td>INd</td><td>IND</td><td>05/10/20</td></tr>
-            <td>INd</td><td>IND</td><td>05/10/20</td></tr>   
+        <th>Team 1</th><th>Team 2</th><th>Date</th></tr>
+        {% for match in schedule %}
+            <tr><td>{{ match[0] }}</td><td>{{ match[1] }}</td><td>{{ match[2] }}</td></tr>
+        {% endfor %}   
     </table> 
 </div>
 
