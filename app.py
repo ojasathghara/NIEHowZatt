@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, redirect, request, session, flash
 from functools import wraps
-from database import Database, Player, Team, Match
+from database import Database, Player, Team, Match, LastMatch
 
 methods = ['GET', 'POST'] #defined for ease
 
@@ -10,25 +10,9 @@ methods = ['GET', 'POST'] #defined for ease
 app = Flask(__name__)
 app.secret_key = '1499058058097067107'
 
-match = {
-    'team1_name': "India",
-    'team2_name': "RSA",
-    'winner_team': "India",
-    'man_of_match': "Ojaswi"
-}
 
-indieTeamDetails = {
-    'team_name': "India",
-    'team_captain': "Ojaswi",
-    'top_player': "Nikhil",   #must be updated after sql query.
-    'matches': 5,
-    'points': 10
-}
-
-#----------------------------------------------------DATABASE QUERIES-------------------------------------------------------------------------
+#----------------------------------------------------DATABASE INIT-------------------------------------------------------------------------
 db = Database()
-
-
 
 
 # -----------------------------------------------------ROUTES------------------------------------------------------------
@@ -81,7 +65,22 @@ def about():
 
 @app.route("/lastMatch")
 def lastMatch():
-    return render_template("lastMatch.html", title="Last Match", match=match)
+
+    matchRaw = db.getLastMatch()
+
+    if matchRaw == (()):
+
+        return render_template("lastMatch.html", title='Last Match', status=False)
+
+    else:
+        match = {
+            'team1': matchRaw[0][0],
+            'team2': matchRaw[0][1],
+            'mom': matchRaw[0][2],
+            'draw': matchRaw[0][3]
+        }
+
+        return render_template("lastMatch.html", title="Last Match", match=match, status=True)
 
 @app.route("/teams/<teamName>")
 def indieTeam(teamName):
@@ -174,6 +173,25 @@ def dashboard():
 @app.route("/dashboard/summary", methods=methods)
 @login_required
 def summary():
+
+    if request.method == 'POST':
+
+        match_id = request.form.get('match_id')
+        team1_id = request.form.get('win_id')
+        team2_id = request.form.get('lose_id')
+        mom = request.form.get('man_of_match')
+
+        draw = False
+
+        if request.form.get('draw'):
+            draw = True
+
+        match = LastMatch(match_id, team1_id, team2_id, mom, draw)
+        db.storeLastMatch(match)
+
+        return redirect(url_for('dashboard'))
+
+
     return render_template("./admin/summary.html", title="Summary")
 
 @app.route("/dashboard/playerStat", methods=methods)

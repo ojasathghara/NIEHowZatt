@@ -5,11 +5,28 @@
     <div class="card-header rounded-0 border-0 bg-red">
         <p>Last Match Details</p>
     </div>
+
+    {% if status == True %}
     <div class="card-body">
-        <p>Last Match: {{ match['team1_name'] }}  V/s  {{ match['team2_name'] }}</p>
-        <p>Winner: {{ match['winner_team'] }}</p>
-        <p>Man of Match: {{ match['man_of_match'] }}</p>
+
+
+        <p>Last Match: {{ match['team1'] }}  V/s  {{ match['team2'] }}</p>
+        
+        {% if match['draw'] == "Draw": %}
+            <p>Match Draw!</p>
+        
+        {% else %}
+            <p>Winner: {{ match['team1'] }}</p>
+
+        {% endif %}
+
+        <p>Man of Match: {{ match['mom'] }}</p>
     </div>
+
+    {% else %}
+    <h4>No Match to show</h4>
+
+    {% endif %}
 </div>
 
 {% endblock content%}

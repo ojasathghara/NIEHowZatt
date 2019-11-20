@@ -51,6 +51,22 @@ class Player ():
         self.name = name
         self.team_id = team_id        
 
+class LastMatch():
+
+    match_id = 0
+    team1_id = 0
+    team2_id = 0
+    mom = ""
+    draw = False
+
+    def __init__(self, id, team1_id, team2_id, mom, draw):
+        
+        self.match_id = id
+        self.team1_id = team1_id
+        self.team2_id = team2_id
+        self.mom = mom
+        self.draw = draw
+
 
 class Database():
     host = ""
@@ -204,6 +220,65 @@ class Database():
         players = self.cur.fetchall()
 
         return players
+
+    
+    def storeLastMatch(self, match):
+
+        getTeam1String = f"select name from teams where id = {match.team1_id};"
+        self.cur.execute(getTeam1String)
+        team1Tuple = self.cur.fetchall()
+        team1Name = team1Tuple[0][0]
+
+        getTeam2String = f"select name from teams where id = {match.team2_id};"
+        self.cur.execute(getTeam2String)
+        team2Tuple = self.cur.fetchall()
+        team2Name = team2Tuple[0][0]
+
+        if match.draw == True:
+
+            updateTeam1 = f"update teams set points=points+1, draw=draw+1, matches=matches+1 where id={match.team1_id};"
+            self.cur.execute(updateTeam1)
+            self.con.commit()
+
+            updateTeam2 = f"update teams set points=points+1, draw=draw+1, matches=matches+1 where id={match.team2_id};"
+            self.cur.execute(updateTeam2)
+            self.con.commit()
+
+        else:
+
+            updateTeam1 = f"update teams set points=points+2, wins=wins+1, matches=matches+1 where id={match.team1_id};"
+            self.cur.execute(updateTeam1)
+            self.con.commit()
+
+            updateTeam2 = f"update teams set points=points+0, lose=lose+1, matches=matches+1 where id={match.team2_id};"
+            self.cur.execute(updateTeam2)
+            self.con.commit()
+
+        status = ""
+        
+        if match.draw == True:
+            status = "Draw"
+
+        else:
+            status = "No Draw"
+
+        insertLastMatch = f"""insert into lastMatches values({match.match_id}, "{team1Name}", "{team2Name}", "{match.mom}", "{status}");""" 
+        self.cur.execute(insertLastMatch)
+        self.con.commit()       
+
+
+        delMatch = Match(match_id=match.match_id)
+
+        self.deleteMatch(delMatch)
+
+    def getLastMatch(self):
+
+        getMatchString = "select * from lastMatch;"
+        self.cur.execute(getMatchString)
+        matchRaw = self.cur.fetchall()
+
+        return matchRaw
+        
 
     
 if __name__ == "__main__":
