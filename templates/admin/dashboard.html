@@ -53,7 +53,7 @@
                 <button type="button" onclick='openForm("schedule_match_form")' class="btn btn-dark bg-teal bg-teal border-0 btn-xl">Schedule Match</button>
             </div>              
 
-            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="schedule_match_form" method="POST" action="" onsubmit="alert('Match Scheduled')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="schedule_match_form" method="POST" action="{{ url_for('dashboard') }}" onsubmit="alert('Match Scheduled')">
                 <div class="form-group">
                     <label for="schedule_match_team1">Team 1 ID</label>
                     <input type="text" name="team1_id" class="form-control rounded-0 rounded-0" id="schedule_match_team1" placeholder="Enter Team ID" required>
@@ -69,7 +69,7 @@
                     <input type="text" name="date" class="form-control rounded-0" id="schedule_match_date" placeholder="DD/MM/YY" required>
                 </div>
 
-                <button type="submit" name="schedule_match" class="btn btn-dark bg-teal bg-teal border-0 float-left rounded-0 paper">Schedule</button>
+                <button type="submit" name="operation" value="schedule_match" class="btn btn-dark bg-teal bg-teal border-0 float-left rounded-0 paper">Schedule</button>
                 <button type="button" class="btn btn-dark bg-teal bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("schedule_match_form")'>Cancel</button>
             </form>
         </div>
@@ -82,13 +82,13 @@
                 <button type="button" onclick='openForm("delete_match_form")' class="btn btn-dark bg-teal border-0 btn-xl">Delete Match</button>
             </div>              
 
-            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="delete_match_form" method="POST" action="" onsubmit="alert('Match Deleted!')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="delete_match_form" method="POST" action="{{ url_for('dashboard') }}" onsubmit="alert('Match Deleted!')">
                 <div class="form-group">
                     <label for="delete_match_id">Enter Match ID</label>
                     <input type="text" name="match_id" class="form-control rounded-0" id="delete_match_id" placeholder="Enter Match ID" required>
                 </div>                
 
-                <button type="submit" name="delete_match" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Delete</button>
+                <button type="submit" name="operation" value="delete_match" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Delete</button>
                 <button type="button" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("delete_match_form")'>Cancel</button>
             </form>
         </div>
@@ -101,7 +101,7 @@
                 <button type="button" onclick='openForm("add_team_form")' class="btn btn-dark bg-teal border-0 btn-xl">Add Team</button>
             </div>              
 
-            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="add_team_form" method="POST" action="" onsubmit="alert('Team Added')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="add_team_form" method="POST" action="{{ url_for('dashboard') }}" onsubmit="alert('Team Added')">
                 <div class="form-group">
                     <label for="team_add_name">Team Name</label>
                     <input type="text" name="team_name" class="form-control rounded-0" id="team_add_name" placeholder="Enter Team Name" required>
@@ -109,13 +109,9 @@
                 <div class="form-group">
                     <label for="team_add_captain">Captain Name</label>
                     <input type="text" name="captain_name" class="form-control rounded-0" id="team_add_captain" placeholder="Captain Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="team_add_players">Number of Players</label>
-                    <input type="text" name="players" class="form-control rounded-0" id="team_add_players" placeholder="Enter Number" required>
-                </div>                
+                </div>             
 
-                <button type="submit" name="add_teams" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Add</button>
+                <button type="submit" name="operation" value="add_team" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Add</button>
                 <button type="button" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("add_team_form")'>Cancel</button>
             </form>
         </div>
@@ -128,13 +124,13 @@
                 <button type="button" onclick='openForm("delete_team_form")' class="btn btn-dark bg-teal border-0 btn-xl">Delete Team</button>
             </div>              
 
-            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="delete_team_form" method="POST" action="" onsubmit="alert('Team Delete!')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="delete_team_form" method="POST" action="{{ url_for('dashboard') }}" onsubmit="alert('Team Delete!')">
                 <div class="form-group">
                     <label for="team_delete_id">Team ID</label>
                     <input type="text" name="team_id" class="form-control rounded-0" id="team_delete_id" placeholder="Enter Team ID" required>
                 </div>              
 
-                <button type="submit" name="delete_team" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Delete</button>
+                <button type="submit" name="operation" value="delete_team" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Delete</button>
                 <button type="button" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("delete_team_form")'>Cancel</button>
             </form>
         </div>
@@ -147,7 +143,7 @@
                 <button type="button" onclick='openForm("add_player_form")' class="btn btn-dark bg-teal border-0 btn-xl">Add Player</button>
             </div>              
 
-            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="add_player_form" method="POST" action="" onsubmit="alert('Player Added')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="add_player_form" method="POST" action="{{ url_for('dashboard') }}" onsubmit="alert('Player Added')">
                 <div class="form-group">
                     <label for="player_add_name">Player Name</label>
                     <input type="text" name="player_name" class="form-control rounded-0" id="player_add_name" placeholder="Enter Player Name" required>
@@ -157,7 +153,7 @@
                     <input type="text" name="team_id" class="form-control rounded-0" id="player_add_teamId" placeholder="Team ID" required>
                 </div>               
 
-                <button type="submit" name="add_player" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Add</button>
+                <button type="submit" name="operation" value="add_player" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Add</button>
                 <button type="button" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("add_player_form")'>Cancel</button>
             </form>
         </div>
@@ -170,7 +166,7 @@
                 <button type="button" onclick='openForm("delete_player_form")' class="btn btn-dark bg-teal border-0 btn-xl">Delete Player</button>
             </div>              
 
-            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="delete_player_form" method="POST" action="" onsubmit="alert('Player Deleted!')">
+            <form class="bg-darker text-white paper rounded-0 border-0 p-2" id="delete_player_form" method="POST" action="{{ url_for('dashboard') }}" onsubmit="alert('Player Deleted!')">
                 <div class="form-group">
                     <label for="player_delete_id">Player ID</label>
                     <input type="text" name="player_id" class="form-control rounded-0" id="player_delete_id" placeholder="Enter Player ID" required>
@@ -180,7 +176,7 @@
                     <input type="text" name="team_id" class="form-control rounded-0" id="player_delete_teamId" placeholder="Team ID" required>
                 </div>               
 
-                <button type="submit" name="delete_player" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Add</button>
+                <button type="submit" name="operation" value="delete_player" class="btn btn-dark bg-teal border-0 float-left rounded-0 paper">Add</button>
                 <button type="button" class="btn btn-dark bg-teal border-0 float-right rounded-0 paper" onclick='closeForm("delete_player_form")'>Cancel</button>
             </form>
         </div>

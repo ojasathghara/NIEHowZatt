@@ -92,11 +92,82 @@ def indieTeam(teamName):
 
 
 #-------------------ADMIN and FORMS ROUTES---------------------------------
-@app.route("/dashboard", methods=methods)
+@app.route("/dashboard", methods=['GET', 'POST'])
 @login_required
 def dashboard():
 
     ad_matches = db.ad_matches()    #./dashboard
+
+    #---------------OPERATIONS--------------------------------
+
+    if request.method == 'POST':
+
+        if request.form.get('operation') == 'schedule_match':
+
+            team1 = request.form.get('team1_id')
+            team2 = request.form.get('team2_id')
+            date  = request.form.get('date')
+
+            match = Match(team1_id=team1, team2_id=team2, date=date)
+
+            db.addMatch(match)   
+
+            return redirect(url_for('dashboard'))  
+
+        elif request.form.get('operation') == 'delete_match':
+
+            match_id = request.form.get('match_id')
+
+            match = Match(match_id=match_id)
+
+            db.deleteMatch(match)
+
+            return redirect(url_for('dashboard'))
+
+        elif request.form.get('operation') == 'add_team':
+
+            name = request.form.get('team_name')
+            captain = request.form.get('captain_name')
+
+            team = Team(name=name, captain=captain)
+
+            db.addTeam(team)
+
+            return redirect(url_for('dashboard'))
+
+        elif request.form.get('operation') == 'delete_team':
+
+            id = request.form.get('team_id')
+
+            team = Team(id=id)
+
+            db.deleteTeam(team)
+
+            return redirect(url_for('dashboard'))
+
+        
+        elif request.form.get('operation') == 'add_player':
+
+            name = request.form.get('player_name')
+            team_id = request.form.get('team_id')
+
+            player = Player(name=name, team_id=team_id)
+
+            db.addPlayer(player)
+
+            return redirect(url_for('dashboard'))
+
+        elif request.form.get('operation') == 'delete_player':
+
+            id = request.form.get('player_id')
+            team_id = request.form.get('team_id')
+
+            player = Player(id=id, team_id=team_id)
+
+            db.deletePlayer(player)
+
+            return redirect(url_for('dashboard'))
+
 
     return render_template("./admin/dashboard.html",title="Dash Board", matches=ad_matches)
 
