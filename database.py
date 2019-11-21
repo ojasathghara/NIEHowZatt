@@ -46,10 +46,16 @@ class Player ():
     gv_runs = 0
     wickets = 0
 
-    def __init__(self, id=0, name="", team_id=""):
+    def __init__(self, id=0, name="", team_id="", sc_runs=0, pl_balls=0, th_balls=0, gv_runs=0, wickets=0):
         self.id = id
         self.name = name
-        self.team_id = team_id        
+        self.team_id = team_id
+
+        self.sc_runs= sc_runs
+        self.gv_runs = gv_runs
+        self.pl_balls = pl_balls
+        self.th_balls = th_balls
+        self.wickets = wickets        
 
 class LastMatch():
 
@@ -278,7 +284,27 @@ class Database():
         matchRaw = self.cur.fetchall()
 
         return matchRaw
-        
+
+    def updateStats(self, player):
+
+        updateStatString = f"""update players set sc_runs=sc_runs+{player.sc_runs}, pl_balls=pl_balls+{player.pl_balls}, th_balls=th_balls+{player.th_balls}, gv_runs=gv_runs+{player.gv_runs}, wickets=wickets+{player.wickets} where id={player.id} and team_id={player.team_id};"""
+        self.cur.execute(updateStatString)
+        self.con.commit()
+
+        getBallsAndRuns = f"""select sc_runs, pl_balls from players where id={player.id} and team_id={player.team_id};"""
+        self.cur.execute(getBallsAndRuns)
+        runsAndBalls = self.cur.fetchall()
+
+        runs = runsAndBalls[0][0]
+        balls = runsAndBalls[0][1]
+
+        strike = (runs/balls)*100
+
+        st_rate = '%.2f'%(strike)
+
+        updateStrike = f"""update players set st_rate={st_rate} where id={player.id} and team_id={player.team_id};"""
+        self.cur.execute(updateStrike)
+        self.con.commit()
 
     
 if __name__ == "__main__":

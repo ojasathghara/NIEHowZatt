@@ -197,6 +197,23 @@ def summary():
 @app.route("/dashboard/playerStat", methods=methods)
 @login_required
 def playerStat():
+
+    if request.method == 'POST':
+
+        id = request.form.get('player_id')
+        team_id = request.form.get('team_id')
+        sc_runs = request.form.get('runs_scored')
+        pl_balls = request.form.get('balls_faced')
+        gv_runs = request.form.get('runs_given')
+        th_balls = request.form.get('balls_thrown')
+        wickets = request.form.get('wickets')
+
+        player = Player(id=id, team_id=team_id, sc_runs=sc_runs, pl_balls=pl_balls, gv_runs=gv_runs, th_balls=th_balls, wickets=wickets)
+
+        db.updateStats(player)
+
+        return redirect(url_for('dashboard'))
+
     return render_template("./admin/playerStat.html", title="Stats")
 
 
