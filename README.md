@@ -1,3 +1,3 @@
-# NIEHowzatt!
+# NIEHowZatt!
 ## Cricket Tournament Management System
 ## For cricket tournament in my Hostel
